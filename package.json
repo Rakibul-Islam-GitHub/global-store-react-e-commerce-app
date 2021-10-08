@@ -1,8 +1,15 @@
 {
-  "name": "gadget-store-react-ecommerce-shop",
+  "name": "global-store-react-ecommerce-shop",
   "version": "0.1.0",
+  "Author" : "Rakibul",
+  "Contact": "www.linkedin.com/in/rakibul21",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-brands-svg-icons": "^5.15.4",
+    "@fortawesome/free-regular-svg-icons": "^5.15.4",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/react-fontawesome": "^0.1.15",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
