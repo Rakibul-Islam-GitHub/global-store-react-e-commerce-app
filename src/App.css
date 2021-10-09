@@ -17,6 +17,16 @@ navbar{
 .nav-link{
   font-weight: 600;
 }
+.nav-link a {
+  color: #895c92;
+  font-size: 20px;
+  text-decoration: none;
+  background-color: transparent;
+}
+a.navbar-brand {
+  font-size: 25px;
+  font-family: cursive;
+}
 .btn .badge {
   margin: 5px;
   position: relative;
