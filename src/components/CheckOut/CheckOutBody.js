@@ -1,8 +1,7 @@
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useEffect } from "react";
-import { useState } from "react";
-import { getCart, saveCartData } from "../Database/databaseManager";
+import React from "react";
+
 import "./checkout.css";
 
 const CheckOutBody = (props) => {

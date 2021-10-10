@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { getCart } from "../Database/databaseManager";
 import Footer from "../Footer/Footer";
 import NavBar from "../Header/NavBar";
@@ -9,7 +8,6 @@ const AboutUs = () => {
   useEffect(() => {
     const cartData = getCart();
     setCart(JSON.parse(cartData));
-    console.log("cartdatabase", cartData);
   }, []);
 
   let totalAmount = 0;

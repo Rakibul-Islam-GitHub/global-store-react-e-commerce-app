@@ -1,9 +1,8 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 import AboutUs from "../AboutUs/AboutUs";
-import NavBar from "../Header/NavBar";
-import Product from "../Product/Product";
 
+// this is an example :
 const Shop = (props) => {
   return (
     <div>

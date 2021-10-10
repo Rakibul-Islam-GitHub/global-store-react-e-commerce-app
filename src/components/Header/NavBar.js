@@ -24,25 +24,25 @@ const NavBar = (props) => {
         </span>
       </button>
 
-      <a className="navbar-brand ml-2 ml-sm-auto" href="/">
+      <Link to="/" className="navbar-brand ml-2 ml-sm-auto">
         Global Store
-      </a>
+      </Link>
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
           <li className="nav-item">
-            <a className="nav-link" href="/shop">
-              <Link to="/shop">Shop</Link>
-            </a>
+            <Link to="/shop" className="nav-link">
+              Shop
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="/checkout">
-              <Link to="/checkout">Check out</Link>
-            </a>
+            <Link to="/checkout" className="nav-link">
+              Check out
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="/about">
-              <Link to="/about">About</Link>
-            </a>
+            <Link to="/about" className="nav-link">
+              About
+            </Link>
           </li>
         </ul>
       </div>

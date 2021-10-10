@@ -4,9 +4,8 @@ import { faShoppingCart, faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Header from "../Header/Header";
 import Product from "../Product/Product";
-import { Link, useLocation, Route } from "react-router-dom";
-import AboutUs from "../AboutUs/AboutUs";
-import NavBar from "../Header/NavBar";
+import { Link, useLocation } from "react-router-dom";
+
 import { getCart, saveCartData } from "../Database/databaseManager";
 
 const Home = (props) => {
@@ -67,19 +66,19 @@ const Home = (props) => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
             <li className="nav-item">
-              <a className="nav-link" href="/shop">
-                <Link to="/shop">Shop</Link>
-              </a>
+              <Link to="/shop" className="nav-link" href="/shop">
+                Shop
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/checkout">
-                <Link to="/checkout">Check out</Link>
-              </a>
+              <Link to="/checkout" className="nav-link" href="/checkout">
+                Check out
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/about">
-                <Link to="/about">About</Link>
-              </a>
+              <Link to="/about" className="nav-link" href="/about">
+                About
+              </Link>
             </li>
           </ul>
         </div>
