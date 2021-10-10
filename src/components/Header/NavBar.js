@@ -1,41 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "../../App.css";
 import { faShoppingCart, faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Header from "../Header/Header";
-import Product from "../Product/Product";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const Home = (props) => {
-  let location = useLocation();
-
-  let marginstyle = { marginTop: "120px" };
-  if (location.pathname === "/shop") {
-    marginstyle = { marginTop: "20px" };
-  }
-
-  const [products, setProducts] = useState([]);
-  const [cart, setCart] = useState([]);
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products/")
-      .then((res) => res.json())
-      .then((data) => setProducts(data));
-  }, []);
-
-  function handleAddToCart(product) {
-    console.log("from add to cart button", product);
-    const newCart = [...cart, product];
-    setCart(newCart);
-  }
-
-  // cart calculation
-  let totalAmount = 0;
-  for (let i = 0; i < cart.length; i++) {
-    totalAmount = cart[i].price + totalAmount;
-    totalAmount = Math.round(totalAmount);
-  }
-  console.log(totalAmount);
-
+const NavBar = (props) => {
+  const { cart } = props.cart;
+  console.log(cart);
   return (
     <div className="container">
       <nav className="navbar sticky-top navbar-expand-lg navbar-light bg-white">
@@ -54,7 +25,7 @@ const Home = (props) => {
         </button>
 
         <a className="navbar-brand ml-2 ml-sm-auto" href="/">
-          <Link to="/">Global Store</Link>
+          Global Store
         </a>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
@@ -85,50 +56,15 @@ const Home = (props) => {
           </button>
           <div className="shopping-cart">
             <p>Oedered Items: {cart.length}</p>
-            <h6 style={{ color: "#DE1F56" }}>Total Amount : ${totalAmount}</h6>
+            <h6 style={{ color: "#DE1F56" }}>Total Amount : $222</h6>
             <div className="d-flex justify-content-center">
               <button className="btn btn-warning btncart">Check out</button>
             </div>
           </div>
         </div>
       </nav>
-      {/* conditional rendering, if it's shop route then it won't display header component */}
-      {props.page === undefined ? (
-        <div className="row header-card">
-          <Header></Header>
-        </div>
-      ) : (
-        ""
-      )}
-
-      <div style={marginstyle} id="product" className="product">
-        <h2 className="text-center  mb-3">All Products</h2>
-
-        {products.map((pd) => {
-          return (
-            <Product
-              handleAddToCart={handleAddToCart}
-              product={pd}
-              key={pd.id}
-            ></Product>
-          );
-        })}
-      </div>
-
-      <footer className="py-5 bg-dark">
-        <div className="container">
-          <p className="m-0 text-center text-white">
-            {" "}
-            &copy;
-            <a href="https://www.linkedin.com/in/rakibul21">
-              {" "}
-              Design & developed by Rakibul - 2021{" "}
-            </a>
-          </p>
-        </div>
-      </footer>
     </div>
   );
 };
 
-export default Home;
+export default NavBar;
