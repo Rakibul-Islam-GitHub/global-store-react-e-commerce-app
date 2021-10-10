@@ -4,7 +4,10 @@ import { faShoppingCart, faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Header from "../Header/Header";
 import Product from "../Product/Product";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, Route } from "react-router-dom";
+import AboutUs from "../AboutUs/AboutUs";
+import NavBar from "../Header/NavBar";
+import { getCart, saveCartData } from "../Database/databaseManager";
 
 const Home = (props) => {
   let location = useLocation();
@@ -20,12 +23,15 @@ const Home = (props) => {
     fetch("https://fakestoreapi.com/products/")
       .then((res) => res.json())
       .then((data) => setProducts(data));
+    const cartData = getCart();
+    setCart(JSON.parse(cartData));
   }, []);
 
   function handleAddToCart(product) {
     console.log("from add to cart button", product);
     const newCart = [...cart, product];
     setCart(newCart);
+    saveCartData(JSON.stringify(newCart));
   }
 
   // cart calculation
@@ -34,10 +40,11 @@ const Home = (props) => {
     totalAmount = cart[i].price + totalAmount;
     totalAmount = Math.round(totalAmount);
   }
-  console.log(totalAmount);
+  // console.log(totalAmount);
 
   return (
     <div className="container">
+      {/* <NavBar totalAmount={totalAmount} cartLength={cart.length}></NavBar> */}
       <nav className="navbar sticky-top navbar-expand-lg navbar-light bg-white">
         <button
           className="navbar-toggler"
@@ -53,9 +60,10 @@ const Home = (props) => {
           </span>
         </button>
 
-        <a className="navbar-brand ml-2 ml-sm-auto" href="/">
-          <Link to="/">Global Store</Link>
-        </a>
+        <Link className="navbar-brand ml-2 ml-sm-auto" to="/">
+          Global Store
+        </Link>
+
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
             <li className="nav-item">
@@ -87,7 +95,12 @@ const Home = (props) => {
             <p>Oedered Items: {cart.length}</p>
             <h6 style={{ color: "#DE1F56" }}>Total Amount : ${totalAmount}</h6>
             <div className="d-flex justify-content-center">
-              <button className="btn btn-warning btncart">Check out</button>
+              <button className="btn btn-warning btncart">
+                <Link style={{ color: "white" }} to="/checkout">
+                  {" "}
+                  Check out
+                </Link>
+              </button>
             </div>
           </div>
         </div>
