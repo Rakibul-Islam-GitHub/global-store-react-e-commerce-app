@@ -23,7 +23,9 @@ const Home = (props) => {
       .then((res) => res.json())
       .then((data) => setProducts(data));
     const cartData = getCart();
-    setCart(JSON.parse(cartData));
+    if (cartData) {
+      setCart(JSON.parse(cartData));
+    }
   }, []);
 
   function handleAddToCart(product) {

@@ -10,7 +10,6 @@ import Shop from "./components/Shop/Shop";
 function App() {
   return (
     <Router>
-      <Shop></Shop>
       <Switch>
         <Route exact path="/">
           <Home />
